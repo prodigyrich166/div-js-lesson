@@ -1,0 +1,89 @@
+<html>
+	<head>
+	</head>
+	<style type="text/css">
+		.box1 {
+			background-color:rgb(230, 194, 170);
+		}
+		.box2 {
+			background-color:rgb(255, 255, 196);
+		}
+		.table {
+			border-width: 1px;
+			border-color: black;
+			border-style: solid;
+			border-collapse: collapse;
+			display: table;
+		}
+		.row {
+			display: table-row;
+		}
+		.tile {
+			width:50px;
+			height:50px;
+			border-width: 1px;
+			border-color: black;
+			border-style: solid;
+			display: table-cell;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          var tableDiv = $("<div>", {
+              class:"table"
+          });
+          tableDiv.appendTo("body");
+
+          for(var row = 0; row < 9; row++) {
+              var tableRow = $("<div>", {
+                  class:"row"
+              });
+              tableRow.appendTo(tableDiv);
+
+              for (var col = 0; col < 9; col++) {
+              	var boxType = "box1";
+                if(row >= 0 && row <= 2) {
+                	if(col >= 0 && col <= 2) {
+                		boxType = "box1";
+                	}
+                	if(col >= 3 && col <= 5) {
+                		boxType = "box2";
+                	}
+                	if(col >= 6 && col <= 8) {
+                		boxType = "box1";
+                	}
+                }
+                if(row >= 3 && row <= 5) {
+                	if(col >= 0 && col <= 2) {
+                		boxType = "box2";
+                	}
+                	if(col >= 3 && col <= 5) {
+                		boxType = "box1";
+                	}
+                	if(col >= 6 && col <= 8) {
+                		boxType = "box2";
+                	}
+                }
+                if(row >= 6 && row <= 8) {
+                	if(col >= 0 && col <= 2) {
+                		boxType = "box1";
+                	}
+                	if(col >= 3 && col <= 5) {
+                		boxType = "box2";
+                	}
+                	if(col >= 6 && col <= 8) {
+                		boxType = "box1";
+                	}
+                }
+                var tableCell = $("<div>",{
+                    class:"tile " + boxType
+                });
+                tableCell.appendTo(tableRow);
+              }
+          }
+      });
+  </script>
+	<body>
+	</body>
+</html>
