@@ -2,8 +2,95 @@
 	<head>
 	</head>
 	<style>
+	img {
+            width:50px;
+            height:50px;
+        }
+        .table {
+            display: table;
+        }
+        .tilesblue {
+            display: table-cell;
+            
+            width:50px;
+            height:50px;
+            background-color: blue; 
+        }
+        .tilesred {
+            display: table-cell;
+            
+            width:50px;
+            height:50px;
+            background-color: red; 
+        }
+        .row {
+            display: table-row;
+        }
 	</style>
-	<body>
+	<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //create the div with class table
+            var tableDiv = $("<div>", {
+                class:"table"
+            });
+            //appendTo will put the div between the body tag
+            tableDiv.appendTo("body");
 
-	</body>
+            //create a for loop the rows
+            for(var row = 0; row < 8; row++) {
+                //create the div with class row
+                var tableRow = $("<div>", {
+                    class:"row"
+                });
+                //put the div between the div with class table
+                tableRow.appendTo(tableDiv);
+
+                //create the columns
+                for (var col = 0; col < 8; col++) {
+
+					if(row%2){
+							
+                    if(col%2){
+                     	var tableCell = $("<div>",{
+                     	class:"tilesblue"
+                    	});
+                    } else {
+                    	var tableCell = $("<div>",{
+                        class:"tilesred"
+                		 });
+                    }
+					}
+					else{
+					 if(col%2){
+                     	var tableCell = $("<div>",{
+                     	class:"tilesred"
+                    	});
+                    } else {
+                    	var tableCell = $("<div>",{
+                        class:"tilesblue"
+                		 });
+                    }	
+					}
+					
+					
+					
+					
+                  
+                    
+
+                   
+                    
+                   
+                   
+                   
+                    tableCell.appendTo(tableRow);
+                }
+            }
+        });
+    </script>
+    <body>
+        
+    </body>
 </html>
+	
